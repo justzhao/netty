@@ -26,9 +26,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * @author Administrator
- * @version 1.0
- * @date 2014年2月16日
+ * Created by zhaopeng on 2016/10/8.
  */
 public class MultiplexerTimeServer implements Runnable {
 

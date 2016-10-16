@@ -21,11 +21,13 @@ import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 
+import java.io.Serializable;
+
 /**
  * Created by zhaopeng on 2016/10/15.
  */
 @Sharable
-public class EchoServerHandler extends ChannelHandlerAdapter {
+public class EchoServerHandler extends ChannelHandlerAdapter   {
 
     int counter = 0;
 
