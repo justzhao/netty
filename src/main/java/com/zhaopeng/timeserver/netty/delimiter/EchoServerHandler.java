@@ -39,6 +39,7 @@ public class EchoServerHandler extends ChannelHandlerAdapter   {
 		+ body + "]");
 	body += "$_";
 	ByteBuf echo = Unpooled.copiedBuffer(body.getBytes());
+
 	ctx.writeAndFlush(echo);
     }
 
