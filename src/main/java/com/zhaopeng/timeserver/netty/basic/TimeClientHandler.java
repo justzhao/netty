@@ -55,6 +55,8 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
         buf.readBytes(req);
         String body = new String(req, "UTF-8");
         System.out.println("Now is : " + body);
+        //如果没有关闭连接，客户端会一直和服务器保持连接
+       // ctx.close();
     }
 
     @Override

@@ -16,13 +16,17 @@
 package com.zhaopeng.timeserver.netty.delimiter;
 
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.concurrent.GenericFutureListener;
 
 /**
  * Created by zhaopeng on 2016/10/15.
  */
 public class EchoClientHandler extends ChannelHandlerAdapter {
+
+    private Object result;
 
     private int counter;
 
@@ -32,6 +36,15 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
      * Creates a client-side handler.
      */
     public EchoClientHandler() {
+    }
+
+
+    public Object getResult() {
+        return result;
+    }
+
+    public void setResult(Object result) {
+        this.result = result;
     }
 
     @Override
@@ -45,10 +58,24 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
     }
 
     @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        super.channelInactive(ctx);
+    }
+
+    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
 	    throws Exception {
+
+        ChannelFuture future = ctx.channel().close();
+
+        System.out.println(Thread.currentThread().getName()+"　"+ future+"  "+counter);
+
+        future.addListener(new ChannelFutureListener());
+        result=msg;
+
+
 	System.out.println("This is " + ++counter + " times receive server : ["
-		+ msg + "]");
+		+ result + "]");
     }
 
     @Override

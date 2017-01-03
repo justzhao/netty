@@ -23,6 +23,7 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
                 System.currentTimeMillis()).toString() : "BAD ORDER";
         ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
         ctx.write(resp);
+
     }
 
     @Override
