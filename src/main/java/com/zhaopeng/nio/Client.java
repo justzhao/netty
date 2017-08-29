@@ -15,9 +15,12 @@ public class Client {
 
     public static void main(String args[]) {
         try {
-            Client client = new Client();
-            client.work(8989);
-        } catch (IOException e) {
+
+
+         System.out.println(SelectionKey.OP_READ );
+            // Client client = new Client();
+         //   client.work(8989);
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
