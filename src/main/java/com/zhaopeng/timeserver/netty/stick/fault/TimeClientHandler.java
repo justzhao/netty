@@ -42,7 +42,6 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 		.getBytes();
     }
 
-    @Override
     public void channelActive(ChannelHandlerContext ctx) {
 	ByteBuf message = null;
 	for (int i = 0; i < 100; i++) {
@@ -52,7 +51,7 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 	}
     }
 
-    @Override
+
     public void channelRead(ChannelHandlerContext ctx, Object msg)
 	    throws Exception {
 	ByteBuf buf = (ByteBuf) msg;

@@ -27,7 +27,7 @@ import io.netty.channel.ChannelHandlerContext;
  * Created by zhaopeng on 2016/10/19.
  */
 public class HeartBeatRespHandler extends ChannelHandlerAdapter {
-    @Override
+
     public void channelRead(ChannelHandlerContext ctx, Object msg)
 	    throws Exception {
 	NettyMessage message = (NettyMessage) msg;

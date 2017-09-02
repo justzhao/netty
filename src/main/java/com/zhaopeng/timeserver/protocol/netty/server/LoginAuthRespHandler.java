@@ -42,7 +42,6 @@ public class LoginAuthRespHandler extends ChannelHandlerAdapter {
      * <p>
      * Sub-classes may override this method to change behavior.
      */
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
             throws Exception {
         NettyMessage message = (NettyMessage) msg;

@@ -26,7 +26,7 @@ import io.netty.util.CharsetUtil;
 public class ChineseProverbClientHandler extends
 	SimpleChannelInboundHandler<DatagramPacket> {
 
-    @Override
+
     public void messageReceived(ChannelHandlerContext ctx, DatagramPacket msg)
 	    throws Exception {
 	String response = msg.content().toString(CharsetUtil.UTF_8);
@@ -42,4 +42,9 @@ public class ChineseProverbClientHandler extends
 	cause.printStackTrace();
 	ctx.close();
     }
+
+	@Override
+	protected void channelRead0(ChannelHandlerContext ctx, DatagramPacket msg) throws Exception {
+
+	}
 }

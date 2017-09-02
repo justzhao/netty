@@ -19,7 +19,6 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.concurrent.GenericFutureListener;
 
 /**
  * Created by zhaopeng on 2016/10/15.
@@ -47,7 +46,6 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
         this.result = result;
     }
 
-    @Override
     public void channelActive(ChannelHandlerContext ctx) {
 	// ByteBuf buf = UnpooledByteBufAllocator.DEFAULT.buffer(ECHO_REQ
 	// .getBytes().length);
@@ -57,12 +55,10 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
 	}
     }
 
-    @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        super.channelInactive(ctx);
+       // super.channelInactive(ctx);
     }
 
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
 	    throws Exception {
 
@@ -78,7 +74,7 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
 		+ result + "]");
     }
 
-    @Override
+
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 	ctx.flush();
     }
